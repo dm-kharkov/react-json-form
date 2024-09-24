@@ -1,0 +1,106 @@
+[
+  {
+    "type": "text",
+    "default_value": "Otto",
+    "name": "firstName",
+    "label": "First Name"
+  },
+
+  {
+    "type": "text",
+    "name": "lastName",
+    "label": "Last Name"
+  },
+
+  {
+    "type": "text",
+    "name": "url",
+    "placeholder": "required and with url regex. to pass enter like 'https://w'",
+    "validation": {
+      "value_type": "string",
+      "regex": "^(http|https):\\/\\/[^ ]+$",
+      "message": "not valid url",
+      "required": true
+    }
+  },
+
+  {
+    "type": "text",
+    "name": "url2",
+    "placeholder": "required without regex",
+    "validation": {
+      "value_type": "string",
+      "message": "not valid url",
+      "required": true
+    }
+  },
+
+  {
+    "type": "dropdown",
+    "name": "gender",
+    "default_value": "male",
+    "placeholder": "Select your gender",
+    "options":  [
+      {
+        "title": "Male",
+        "value": "male"
+      },
+      {
+        "title": "Female",
+        "value": "female"
+      },
+      {
+        "title": "Shemale",
+        "value": "shemale"
+      }
+    ]
+  },
+
+  {
+    "type": "dropdown",
+    "name": "age",
+    "label": "Age",
+    "default_value": "18",
+    "options":  [
+      {
+        "title": "Less than 16",
+        "value": "< 16"
+      },
+      {
+        "title": "18",
+        "value": "18"
+      },
+      {
+        "title": "Over 21",
+        "value": "21+"
+      }
+    ]
+  },
+
+  {
+    "type": "number",
+    "name": "people",
+    "default_value": 4,
+    "min_value": 2,
+    "max_value": 5,
+    "label": "Values: min: 2, max: 5"
+  },
+
+  {
+    "type": "number",
+    "name": "quantity",
+    "label": "Default min,max used (min:0, max: 100)"
+  },
+
+  {
+    "type": "longtext",
+    "default_value": "lorems input long text, random text. lorems input long text, random text. lorems input long text, random text",
+    "name": "description",
+    "label": "Long text field"
+  },
+
+  {
+    "type": "longtext",
+    "name": "note"
+  }
+]
