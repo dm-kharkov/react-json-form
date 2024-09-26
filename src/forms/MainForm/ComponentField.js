@@ -7,6 +7,8 @@ import SelectField from 'fields/Select'
 import TextAreaField from 'fields/TextArea'
 import TextField from 'fields/Text'
 
+import { createFieldValidate } from 'lib/form'
+
 const ComponentFields = {
   dropdown: SelectField,
   longtext: TextAreaField,
@@ -14,20 +16,8 @@ const ComponentFields = {
   text: TextField
 }
 
-const createFieldValidate = field => value => {
-  const { validation } = field
-
-  if (validation && validation.regex) {
-    const regExp = new RegExp(validation.regex)
-
-    return value && !regExp.test(value)
-      ? validation.message || 'Validation failed'
-      : undefined
-  }
-}
-
 function ComponentField (props) {
-  const { config } = props
+  const { config, schema } = props
 
   const {
     type,
@@ -43,7 +33,7 @@ function ComponentField (props) {
   const FieldComponent = ComponentFields[type]
 
   const validate = React.useMemo(
-    () => createFieldValidate(config),
+    () => createFieldValidate({ config, schema }),
     []
   )
 
